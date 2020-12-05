@@ -14,32 +14,35 @@ def read_file_to_int_list(path) -> List[int]:
     return data
 
 
-def d1_a(data: List) -> int:
-    """Primary logic for d1_a; product of the two numbers in the list that sum to 2020
+def d1_a(data: List, seek_sum: int) -> int:
+    """Primary logic for d1_a;
 
     Args:
         data (List): list of ints
+        seek_sum (int): desired sum of 2 numbers
 
     Returns:
-        int: product of the two numbers in the list that sum to 2020
+        int: product of the 2 numbers in the list that sum to the given seek_sum
     """
-    return [x * y for x in data for y in data if x + y == 2020][0]
+    return [x * y for x in data for y in data if x + y == seek_sum][0]
 
 
-def d1_b(data: List) -> int:
-    """Primary logic for d1_b; product of the three numbers in the list that sum to 2020
+def d1_b(data: List, seek_sum: int) -> int:
+    """Primary logic for d1_b;
 
     Args:
         data (List): list of ints
+        seek_sum (int): desired sum of 3 numbers
 
     Returns:
-        int: [description]
+        int: product of the 3 numbers in the list that sum to the given seek_sum
     """
-    return [x * y * z for x in data for y in data for z in data if x + y + z == 2020][0]
+    return [x * y * z for x in data for y in data for z in data if x + y + z == seek_sum][0]
 
 
 def main(data: List):
-    result_a = d1_a(data)
+    seek_sum = 2020
+    result_a = d1_a(data, seek_sum)
     log.info("Result for d01_a:" + str(result_a))
 
     result_b = d1_b(data)
